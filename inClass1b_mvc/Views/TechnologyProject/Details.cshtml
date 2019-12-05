@@ -1,0 +1,20 @@
+﻿@model inClass1b_mvc.ViewModels.TechnologyProjectVM
+
+@{
+    ViewData["Title"] = "Technologies Used in " + Model.Project.Title;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    <ol>
+        @foreach (var item in Model.Technologies)
+        {
+            <li>@item.Name</li>
+        }
+    </ol>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -5,11 +5,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using inClass1b_mvc.Models;
+using inClass1b_mvc.Models.Portfolio;
 
 namespace inClass1b_mvc.Controllers
 {
     public class HomeController : Controller
     {
+        private PortfolioContext db;
+
+        // Initialize context when controller is created.
+        public HomeController(PortfolioContext db)
+        {
+            this.db = db;
+            Seeder seeder = new Seeder(db);
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -20,15 +30,11 @@ namespace inClass1b_mvc.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+       
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }
