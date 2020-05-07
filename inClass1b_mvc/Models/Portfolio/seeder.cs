@@ -40,7 +40,7 @@ namespace inClass1b_mvc.Models.Portfolio
             //Create a single Object to add to the database.
             Project seedProject = new Project
             {
-                Title = "Phil Weier Portfolio",
+                Title = "Neil Quizon",
                 Description = "A portfolio site for displaying my development skills."
             };
 
